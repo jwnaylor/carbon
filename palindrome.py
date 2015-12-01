@@ -65,7 +65,6 @@ def palindromes(seed):
                 seen.add(pal)
                 if not pal in allseen:
                     allseen.add(pal)
-                    print pal
                     yield pal
             hit_rate = float(hits) / float(hits + misses) * 100
     return
