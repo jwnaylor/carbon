@@ -28,13 +28,13 @@ class SixSidedWeightedDie(object):
             raise RuntimeError("weights must sum to 1")
 
         # divide a range of 1 to MULTIPIER based on the weights
-        self.ranges=[0.0] * 6
-        self.ranges[0]=weights[0] * self.MULTIPIER
+        self._ranges=[0.0] * 6
+        self._ranges[0]=weights[0] * self.MULTIPIER
         for i in xrange(1, 6):
-            self.ranges[i]= self.ranges[i-1] + weights[i] * self.MULTIPIER;
+            self._ranges[i]= self._ranges[i-1] + weights[i] * self.MULTIPIER;
 
     # Throw the die: this should produce a value in [1,6]
     def throw_die(self):
         x = random.randint(1, self.MULTIPIER)
         for i in xrange(6):
-            if x <= self.ranges[i]: return i+1
+            if x <= self._ranges[i]: return i+1
